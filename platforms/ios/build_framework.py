@@ -101,6 +101,10 @@ class Builder:
             if xcode_ver >= 7 and t[1] == 'iPhoneOS' and self.bitcodedisabled == False:
                 cmake_flags.append("-DCMAKE_C_FLAGS=-fembed-bitcode")
                 cmake_flags.append("-DCMAKE_CXX_FLAGS=-fembed-bitcode")
+            cmake_flags.append("-DBUILD_ZLIB=OFF")
+            cmake_flags.append("-DBUILD_IPP_IW=OFF")
+            cmake_flags.append("-DWITH_IPP=OFF")
+            cmake_flags.append("-DWITH_LAPACK=OFF")
             self.buildOne(t[0], t[1], mainBD, cmake_flags)
 
             if self.dynamic == False:
