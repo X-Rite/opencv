@@ -16,10 +16,11 @@ class OSXBuilder(Builder):
         return None
 
     def getBuildCommand(self, archs, target):
+        arch = " ".join(archs)
         buildcmd = [
             "xcodebuild",
             "MACOSX_DEPLOYMENT_TARGET=10.10",
-            "ARCHS=i386 x86_64",
+            "ARCHS=%s" % arch,
             "ONLY_ACTIVE_ARCH=NO",
             "-sdk", target.lower(),
             "-configuration", "Release",
@@ -43,6 +44,6 @@ if __name__ == "__main__":
 
     b = OSXBuilder(args.opencv, args.contrib, False, False, args.without,
         [
-            (["x86_64"], "MacOSX")
+            (["i386","x86_64"], "MacOSX")
         ])
     b.build(args.out)
