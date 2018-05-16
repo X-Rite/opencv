@@ -152,7 +152,7 @@ class Builder:
 
         if self.dynamic:
             buildcmd += [
-                "IPHONEOS_DEPLOYMENT_TARGET=8.0",
+                "IPHONEOS_DEPLOYMENT_TARGET=10.0",
                 "ONLY_ACTIVE_ARCH=NO",
             ]
 
@@ -162,7 +162,7 @@ class Builder:
         else:
             arch = ";".join(archs)
             buildcmd += [
-                "IPHONEOS_DEPLOYMENT_TARGET=6.0",
+                "IPHONEOS_DEPLOYMENT_TARGET=10.0",
                 "ARCHS=%s" % arch,
             ]
 
